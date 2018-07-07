@@ -6,5 +6,5 @@ This addon is meant to be minimal.  If you want something simple that auto charg
 It does output what weapon was charged in the chat box, other than that it's very quiet.
 
 
-The download link can also be found here:
+The download link can be found here:
 http://www.esoui.com/downloads/info2063-WeaponCharger.html 
