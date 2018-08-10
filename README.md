@@ -1,5 +1,5 @@
 # WeaponCharger
-An addon that auto charges weapons in Elder Scrolls Online
+An addon that auto charges weapons in Elder Scrolls Online.  It uses the in game soul gem setting for charging weapons.  If you have the setting to default to crown gems it will use those first before the regualr gold gems and vice versa.
 
 
 This addon is meant to be minimal.  If you want something simple that auto charges weapons, then this is what you're looking for.
