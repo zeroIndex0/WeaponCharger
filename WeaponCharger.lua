@@ -2,41 +2,34 @@
 WeaponCharger = WeaponCharger or {}
 
 WeaponCharger.name = "WeaponCharger"
-WeaponCharger.version = 0.2
+WeaponCharger.version = 0.2.1
 
 
 
 local function WeaponChargerGetSoulGemIndex()
     local gemSetting = GetSetting(SETTING_TYPE_IN_WORLD, IN_WORLD_UI_SETTING_DEFAULT_SOUL_GEM)
-    local crownGemSupply = true
-
-    if gemSetting == "1" then
-        for index = 0, GetBagSize(BAG_BACKPACK) do
-            if IsItemSoulGem(SOUL_GEM_TYPE_FILLED, BAG_BACKPACK, index) then
-                if GetItemLinkName(GetItemLink(BAG_BACKPACK, index, LINK_STYLE_BRACKETS)) == "Crown Soul Gem" then
-                    return index
-                end
+    local normalIndex = nil
+    local crownIndex = nil
+ 
+    for index = 0, GetBagSize(BAG_BACKPACK) do
+        local itemId = GetItemId(BAG_BACKPACK, index)
+        if (itemId == 33271) then
+            if gemSetting == "0" then
+                return index
+            else
+                normalIndex = index
+            end
+        elseif (itemId == 61080) then
+            if gemSetting == "1" then
+                return index
+            else
+                crownIndex = index
             end
         end
-        --no more crown gems
-        crownGemSupply = false
     end
-    if crownGemSupply == false or gemSetting == "0" then
-        local spottedIndex = nil
-        for index = 0, GetBagSize(BAG_BACKPACK) do
-            if IsItemSoulGem(SOUL_GEM_TYPE_FILLED, BAG_BACKPACK, index) then
-                if GetItemLinkName(GetItemLink(BAG_BACKPACK, index, LINK_STYLE_BRACKETS)) == "Soul Gem" and gemSetting == "0" then
-                    return index
-                end
-                if GetItemLinkName(GetItemLink(BAG_BACKPACK, index, LINK_STYLE_BRACKETS)) == "Crown Soul Gem" and gemSetting == "0" then
-                    spottedIndex = index
-                end
-            end
-        end
-        return spottedIndex
-    end
-
-	return nil
+ 
+    -- if we reached this point, the preferred gem type was not found, so return any gem found, if available
+    return normalIndex or crownIndex
 end
 
 local function WeaponChargerChargeWeapons()
