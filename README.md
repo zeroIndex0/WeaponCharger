@@ -7,3 +7,5 @@ It does output what weapon was charged in the chat box, other than that it's ver
 
 The download link can be found here:
 http://www.esoui.com/downloads/info2063-WeaponCharger.html 
+
+If you download the addon from here you can remove the README.md file and its important to change the name from WeaponCharger-master to WeaponCharger.  Otherwise it will not work when grabbed from here.
