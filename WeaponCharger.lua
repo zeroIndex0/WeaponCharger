@@ -2,7 +2,7 @@
 WeaponCharger = WeaponCharger or {}
 
 WeaponCharger.name = "WeaponCharger"
-WeaponCharger.version = "0.2.2"
+WeaponCharger.version = "0.2.3"
 
 
 
