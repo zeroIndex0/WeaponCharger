@@ -1,4 +1,7 @@
 # WeaponCharger
+
+###### Compatible with Murkmire DLC
+
 An addon that auto charges weapons in Elder Scrolls Online.  It uses the in game soul gem setting for charging weapons.
 
 This addon is meant to be minimal.  If you want something simple that auto charges weapons, then this is what you're looking for.
