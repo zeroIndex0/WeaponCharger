@@ -1,7 +1,7 @@
 ## Title: WeaponCharger
-## Version 0.2.3
+## Version 0.2.4
 ## Purpose:  To Charge Weapons
-## APIVersion:  100025
+## APIVersion:  100027
 ## Author: zeroIndex
 
 
