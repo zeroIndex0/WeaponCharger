@@ -2,7 +2,7 @@
 WeaponCharger = WeaponCharger or {}
 
 WeaponCharger.name = "WeaponCharger"
-WeaponCharger.version = "0.2.4"
+WeaponCharger.version = "0.2.6"
 
 
 
@@ -49,7 +49,13 @@ local function WeaponChargerChargeWeapons()
             --output the message to all tabs
             if CHAT_SYSTEM then
                 if CHAT_SYSTEM.primaryContainer then
-                    CHAT_SYSTEM.primaryContainer:OnChatEvent(nil, "Charged: " .. GetItemLink(BAG_WORN, weapon, LINK_STYLE_BRACKETS),  CHAT_CATEGORY_SYSTEM)
+                    --If the old chat system is implemented, then use the old system.  Pre API: 100030
+                    if CHAT_SYSTEM.primaryContainer.OnChatEvent then
+                        CHAT_SYSTEM.primaryContainer:OnChatEvent(nil, "Charged: " .. GetItemLink(BAG_WORN, weapon, LINK_STYLE_BRACKETS),  CHAT_CATEGORY_SYSTEM)
+                    else
+                    --Otherwise, use the new way of outputting yellow text.  After API: 100030
+                        CHAT_SYSTEM.primaryContainer:AddEventMessageToContainer("Charged: " .. GetItemLink(BAG_WORN, weapon, LINK_STYLE_BRACKETS),  CHAT_CATEGORY_SYSTEM)
+                    end
                 end
             end
         end
