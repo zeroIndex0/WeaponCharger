@@ -1,6 +1,6 @@
 # WeaponCharger
 
-###### Compatible with Elsweyr
+###### Compatible with Harrowstorm
 
 An addon that auto charges weapons in Elder Scrolls Online.  It uses the in game soul gem setting for charging weapons.
 
